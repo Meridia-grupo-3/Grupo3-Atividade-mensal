@@ -117,6 +117,7 @@ function filterHome(){
 }
 
 function filterPlatform(plataform){   
+	console.log(plataform)
 	innerGames.innerHTML = '';          
     if(filter_category.length > 2){                 //caso haja um filtro de categoria, será colocado um & antes do parametro.
         filter_platform = `&platform=${plataform}`;
