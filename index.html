@@ -23,9 +23,9 @@
     <header class="nav-bar">
         <div class="plataformas">
             <ul class="lista-plataformas">
-                <li>PC</li>
-                <li>Browser</li>
-                <li>All</li>
+                <li><a id = "botao_plataforma_0" value="pc" onclick="filterPlatform(this.value)"> PC </a></li>
+                <li><a id = "botao_plataforma_1" value="browser" onclick="filterPlatform(this.value)"> Navegador </a></li>
+                <li><a id = "botao_plataforma_2" value="all" onclick="filterPlatform(this.value)"> All </a></li>
             </ul>
         </div>
     </header>
@@ -33,14 +33,14 @@
         <div class="categorias">
             <ul class="lista-categorias">
                 <li>HOME</li>
-                <li>Categoria 1</li>
-                <li>Categoria 2</li>
-                <li>Categoria 3</li>
-                <li>Categoria 4</li>
-                <li>Categoria 5</li>
-                <li>Categoria 6</li>
-                <li>Categoria 7</li>
-                <li>Categoria 8</li>
+                <li><a id = "botao_categoria_1"  onclick="filterCategory(this.innerText)">mmorpg</a></li>
+                <li><a id = "botao_categoria_2"  onclick="filterCategory(this.innerText)"> shooter </a></li>
+                <li><a id = "botao_categoria_3"  onclick="filterCategory(this.innerText)"> strategy </a></li>
+                <li><a id = "botao_categoria_4"  onclick="filterCategory(this.innerText)"> moba </a></li>
+                <li><a id = "botao_categoria_5"  onclick="filterCategory(this.innerText)"> racing </a></li>
+                <li><a id = "botao_categoria_6"  onclick="filterCategory(this.innerText)"> sports </a></li>
+                <li><a id = "botao_categoria_7"  onclick="filterCategory(this.innerText)"> open-world </a></li>
+                <li><a id = "botao_categoria_8"  onclick="filterCategory(this.innerText)"> survival </a></li>
             </ul>
         </div>
     </aside>
@@ -58,6 +58,7 @@
     </section>    
     <script src="https://kit.fontawesome.com/a146d88807.js" crossorigin="anonymous"></script>
     <script src="./scripts/index.js"></script>
+    <!-- <script src="./scripts/filter.js"></script> -->
 </body>
 
 </html>

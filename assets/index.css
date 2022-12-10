@@ -99,7 +99,7 @@
     justify-content: center;
     height: 300px;
     width: 100%;
-    background-color: #2F2E2E;
+    /* background-color: #2F2E2E; */
     margin-bottom: 10px;
 }
 
@@ -111,8 +111,8 @@
 
 .page-content .banner .video-banner > video {
     height: 300px;
-    width: 90%;
-    opacity: 50%;
+    width: 94%;
+    opacity: 100%;
     z-index: -100;
     object-fit: cover;
     position: absolute;
@@ -153,8 +153,7 @@
 
 /* card game video*/
 .page-content .banner .game-banner .game-description {
-    /* background-color: #ff0000; */
-    width: 450px; 
+    width: 750px; 
     color: rgb(255, 255, 255);
     position: absolute;
     text-align: center;
@@ -182,7 +181,7 @@
     transition: all 0.2s;
 }
 
-.page-content .grid .card-games .fav-game > img {
+.page-content .grid .card-games .fav-game > a > img {
     height: 19.35vh;
     width: 13.25vw;
     object-fit: cover;
@@ -206,9 +205,10 @@
     padding-left: 10px;
 }
 
-.page-content .grid .game-description > h1 {
+.page-content .grid .game-description > a {
     color: #ff0000;
     text-decoration: underline;
+    font-weight: bold;
 }
 
 
