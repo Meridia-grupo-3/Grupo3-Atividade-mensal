@@ -19,13 +19,13 @@ function ColocarDados(jsonObject){
 	let innerGameBanner = document.querySelector('.game-banner');
 	let innerGames = document.querySelector('.grid');
 
-    innerBanner.innerHTML = `<video autoplay="true" loop="true"><source src="https://www.freetogame.com/g/${jsonObject[3].id}/videoplayback.webm"><source><video>`;
+    innerBanner.innerHTML = `<video autoplay="true" loop="true"><source src="https://www.freetogame.com/g/${jsonObject[9].id}/videoplayback.webm"><source><video>`;
 								
     innerGameBanner.innerHTML = `<div class="game-description">
-	<h1>${jsonObject[3].title}</h1>
-	<p>${jsonObject[3].platform}</p>
-	<p>${jsonObject[3].short_description}</p>
-</div>`;
+									<h1>${jsonObject[9].title}</h1>
+									<p>${jsonObject[9].platform}</p>
+									<p>${jsonObject[9].short_description}</p>
+								</div>`;
 
 
 	for (let i = 1; i < 7; i++) {
@@ -60,6 +60,7 @@ function ColocarDados(jsonObject){
 									</div>    
 								</article>`
 		}
+		contador += 6;
 	}
 	btn.addEventListener('click', elementos);
 }   
