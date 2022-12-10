@@ -50,8 +50,9 @@
 .nav-bar .plataformas .lista-plataformas {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 50px;
     color: #FFF;
+    padding-left: 130px;
 }
 
 .side-bar {
@@ -80,7 +81,7 @@
     list-style: none;
     gap: 35px;
 }
-
+/*  com divs
 .page-content {
     width: calc(100% - 190px);
     min-height: 100vh;
@@ -127,4 +128,133 @@
 
 .page-content .page-wrap .games-wrapper > img {
     border-radius: 30px;
+} */
+
+.page-content {
+    width: calc(100% - 190px);
+    min-height: 100vh;
+    position: fixed;
+    overflow: auto;
+    top: 170px;
+    right: 0;
+    padding-top: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
+
+.page-content .banner {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    background-color: #2F2E2E;
+    margin-bottom: 10px;
+}
+
+.page-content .banner .video-banner {
+    /* background-color: #ff0000; */
+    display: flex;
+    justify-content: center;
+}
+
+.page-content .banner .video-banner > video {
+    height: 300px;
+    width: 700px;
+    opacity: 50%;
+    position: absolute;
+}
+
+
+
+.page-content .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.page-content .wrapper-grid {
+    background-color: #FF9800;
+}
+
+.page-content .grid > article {
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.page-content .grid > article:hover {
+    
+   transform: scale(1.03);
+    
+}
+
+.page-content .banner .game-banner {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+/* card game video*/
+.page-content .banner .game-banner .game-description {
+    /* background-color: #ff0000; */
+    width: 450px; 
+    color: rgb(255, 255, 255);
+    position: absolute;
+    text-align: center;
+}
+
+.page-content .grid .card-games .fav-game .fa-star{
+    color: #FF9800;
+    position: absolute;
+    font-size: 25px;
+    padding-bottom: 17px;
+}
+
+/* .page-content .grid > article:first-child, .page-content .grid{
+    grid-column: 1 / -1;
+    height: 300px;
+    border-radius: 35px;
+} */
+
+.page-content .grid .card-games .fav-game {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 2px solid #b5b4b4;
+    padding: 3px;
+    transition: all 0.2s;
+}
+
+.page-content .grid .card-games .fav-game > img {
+    height: 19.35vh;
+    width: 13.25vw;
+    object-fit: cover;
+}
+
+.page-content .grid .card-games .fav-game:hover {
+    border: 2px solid #FF9800;
+    transform: scale(1.02);
+}
+
+.page-content .grid .card-games .fav-game .fa-star:hover {
+    z-index: 1;
+}
+
+.page-content .grid .card-games .game-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.page-content .grid .game-description > h1 {
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+

@@ -15,23 +15,51 @@ fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
 
 
 function ColocarDados(jsonObject){
-    let innerBanner = document.querySelector('.page-banner');
-    let innerGames = document.querySelector('.games-wrapper');
-    innerBanner.innerHTML = `<img src="${jsonObject[0].thumbnail}" alt="">`;
-    
-    for (let i = 1; i < 7; i++) {
-        innerGames.innerHTML += `<img src="${jsonObject[i].thumbnail}" alt="";>`;
-    }
+	let innerBanner = document.querySelector('.video-banner');
+	let innerGameBanner = document.querySelector('.game-banner');
+	let innerGames = document.querySelector('.grid');
 
-    let contador = 13;
-    let i = 7;
-    let btn = document.getElementById('btn');
+    innerBanner.innerHTML = `<video autoplay="true" loop="true"><source src="https://www.freetogame.com/g/${jsonObject[3].id}/videoplayback.webm"><source><video>`;
+								
+    innerGameBanner.innerHTML = `<div class="game-description">
+	<h1>${jsonObject[3].title}</h1>
+	<p>${jsonObject[3].platform}</p>
+	<p>${jsonObject[3].short_description}</p>
+</div>`;
 
-    function elementos(){
-        for(i; i<contador;i++){
-            innerGames.innerHTML += `<img src="${jsonObject[i].thumbnail}" alt="">`
-        }
-        contador += 6;
-    }
-    btn.addEventListener('click', elementos);
+
+	for (let i = 1; i < 7; i++) {
+		innerGames.innerHTML += `<article class="card-games">
+										<div class="fav-game">
+											<i class="fa-regular fa-star"></i>
+											<img src="${jsonObject[i].thumbnail}" alt="">
+										</div>
+										<div class="game-description">
+											<h1>${jsonObject[i].title}</h1>
+											<p>${jsonObject[i].platform}</p>
+											<p>${jsonObject[i].short_description}</p>
+										</div>    
+									</article>`;
+	}
+
+	let contador = 13;
+	let i = 7;
+	let btn = document.getElementById('btn');
+
+	function elementos(){
+		for(i; i<contador;i++){
+			innerGames.innerHTML += `<article class="card-games">
+									<div class="fav-game">
+										<i class="fa-regular fa-star"></i>
+										<img src="${jsonObject[i].thumbnail}" alt="">
+									</div>
+									<div class="game-description">
+										<h1>${jsonObject[i].title}</h1>
+										<p>${jsonObject[i].platform}</p>
+										<p>${jsonObject[i].short_description}</p>
+									</div>    
+								</article>`
+		}
+	}
+	btn.addEventListener('click', elementos);
 }   
