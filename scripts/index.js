@@ -49,10 +49,14 @@ function ColocarDados(){
 										</div>    
 									</article>`;
 	}	
+
 	limitador = 13;
 	contadorBusca = 7;
-	let btn = document.getElementById('btn');
+	
+	let btn = document.getElementById('btn');	
+	btn.style.display = 'block' ;
 	btn.addEventListener('click', elementos);
+	
 }   
 
 function elementos(){
@@ -148,7 +152,7 @@ function favoritesAction(index){
             if(listafavoritos[i].id == jogos_exibidos[index].id){
 				favorites.splice(i, 1);
 
-				//alert('Item removido dos favoritos');
+				
 				localStorage.setItem('favorites', JSON.stringify(favorites));
 				return;
             }
@@ -174,6 +178,9 @@ function mostrarFav(){
 	innerGameBanner.innerHTML = "";
 	innerGames.innerHTML="";
 	console.log(localStorage);
+	
+	let btn = document.getElementById('btn');
+	btn.style.display = 'none' ;
 	
 	for (let i = 0; i < favorites.length; i++) {
 		innerGames.innerHTML += `<article class="card-games">
