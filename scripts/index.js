@@ -4,6 +4,7 @@ let innerGames = document.querySelector('.grid');
 var jogos_exibidos; 
 var limitador = 13;
 var contadorBusca = 7;
+var favorites = [];
 
 const options = {
 	method: 'GET',
@@ -36,7 +37,7 @@ function ColocarDados(){
 	for (let i = 1; i < 7; i++) {
 		innerGames.innerHTML += `<article class="card-games">
 										<div class="fav-game">
-											<i class="fa-regular fa-star"></i>
+										<a role="button" onclick="favoritesAction('${i}')"><i class="fa-regular fa-star" ></i></a>
 											 <a href="${jsonObject[i].game_url}" target= "_blank">
 												<img src="${jsonObject[i].thumbnail}" alt="">
 											 </a>
@@ -61,7 +62,7 @@ function elementos(){
 			return;
 		innerGames.innerHTML += `<article class="card-games">
 								<div class="fav-game">
-									<i class="fa-regular fa-star"></i>
+								<a role="button" onclick="favoritesAction('${contadorBusca}')"><i class="fa-regular fa-star" ></i></a>
 									<a href="${jsonObject[contadorBusca].game_url}" target= "_blank">
 										<img src="${jsonObject[contadorBusca].thumbnail}" alt="">
 									 </a>
@@ -81,8 +82,8 @@ function elementos(){
 
 
 //Variáveis filtros
-let filter_platform = ""
-let filter_category = ""
+let filter_platform = "";
+let filter_category = "";
 
 
 
@@ -92,7 +93,7 @@ function loadPage(){
 	.then(response => response.json())
     .then (jsonObject => {
 		jogos_exibidos = jsonObject;
-		console.log(jogos_exibidos)
+		console.log(jogos_exibidos);
 		ColocarDados();
 	}) 
 	.then(response => console.log(response))
@@ -100,8 +101,8 @@ function loadPage(){
 }
 
 function filterHome(){
-    filter_platform = ""
-    filter_category = ""
+    filter_platform = "";
+    filter_category = "";
 	innerGames.innerHTML = ''; 
 
     fetch(`https://free-to-play-games-database.p.rapidapi.com/api/games?$?sort-by=popularity`, options)
@@ -135,4 +136,67 @@ function filterCategory(category){
     loadPage()
 }
 
-filterHome();
+
+//FAVORITES.
+function favoritesAction(index){
+    let localStorageFavorites = localStorage.getItem('favorites');
+    let listafavoritos;
+
+    if(localStorageFavorites != undefined){
+        listafavoritos = JSON.parse(localStorageFavorites);
+		for(let i = 0 ; i < listafavoritos.length ; i++ ){
+            if(listafavoritos[i].id == jogos_exibidos[index].id){
+				favorites.splice(i, 1);
+
+				//alert('Item removido dos favoritos');
+				localStorage.setItem('favorites', JSON.stringify(favorites));
+				return;
+            }
+		}
+
+    }
+	favorites.push(jogos_exibidos[index]);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+//mostrar os favoritos
+
+function mostrarFav(){
+	let localStorageFavorites = localStorage.getItem('favorites');
+	if(localStorageFavorites == undefined){
+        return;
+	}
+	
+	favorites = JSON.parse(localStorageFavorites);
+	
+
+	innerBanner.innerHTML = "";
+	innerGameBanner.innerHTML = "";
+	innerGames.innerHTML="";
+	console.log(localStorage);
+	
+	for (let i = 0; i < favorites.length; i++) {
+		innerGames.innerHTML += `<article class="card-games">
+										<div class="fav-game">
+										<a role="button" onclick="removeFavoritosTela('${i}')"><i class="fa-regular fa-star" ></i></a>
+											 <a href="${favorites[i].game_url}" target= "_blank">
+												<img src="${favorites[i].thumbnail}" alt="">
+											 </a>
+										</div>
+										<div class="game-description">
+											<a href="${favorites[i].game_url}" target= "_blank">${favorites[i].title}</a>
+											<p>${favorites[i].platform}</p>
+											<p>${favorites[i].short_description}</p>
+										</div>    
+									</article>`;
+	}	
+}
+
+function removeFavoritosTela(index){
+	favorites = JSON.parse(localStorage.getItem('favorites'));
+	favorites.splice(index, 1);
+	localStorage.setItem('favorites', JSON.stringify(favorites));
+	mostrarFav();
+}
+
+filterHome()
