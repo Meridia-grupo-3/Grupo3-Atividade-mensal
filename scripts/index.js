@@ -62,8 +62,11 @@ function ColocarDados(){
 function elementos(){
 	let jsonObject = jogos_exibidos;
 	for(contadorBusca; contadorBusca < limitador; contadorBusca++){	
-		if(contadorBusca >= jsonObject.length)
-			return;
+		if(contadorBusca >= jsonObject.length){
+				btn.style.display = 'none';
+				return;
+		}
+		
 		innerGames.innerHTML += `<article class="card-games">
 								<div class="fav-game">
 								<a role="button" onclick="favoritesAction('${contadorBusca}')"><i class="fa-regular fa-star" ></i></a>
