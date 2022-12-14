@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/index.css">
     <link rel="stylesheet" href="./assets/media-query.css">
+    <link rel="shortcut icon" href="./assets/icons/Click-Jogos-removebg-preview copy.ico">
     <title>Atividade Mensal</title>
 </head>
 <body>
@@ -23,8 +24,8 @@
     <header class="nav-bar">
         <div class="plataformas">
             <ul class="lista-plataformas">
-                <li><a id = "botao_plataforma_0" value="pc" onclick="filterPlatform(this.innerText)"> pc </a></li>
-                <li><a id = "botao_plataforma_1" value="browser" onclick="filterPlatform(this.innerText)"> browser </a></li>
+                <li><a id = "botao_plataforma_0" value="pc" onclick="filterPlatform(this.innerText)"><i class="fa-solid fa-desktop"></i>pc</a></li>
+                <li><a id = "botao_plataforma_1" value="browser" onclick="filterPlatform(this.innerText)"><i class="fa-brands fa-firefox-browser"></i>browser </a></li>
                 <li><a id = "botao_plataforma_2" value="all" onclick="filterPlatform(this.innerText)"> all </a></li>
             </ul>
         </div>
@@ -32,15 +33,39 @@
     <aside class="side-bar">
         <div class="categorias">
             <ul class="lista-categorias">
-                <li><a onclick="filterHome()">Home</a></li>
-                <li><a id = "botao_categoria_1"  onclick="filterCategory(this.innerText)">mmorpg</a></li>
-                <li><a id = "botao_categoria_2"  onclick="filterCategory(this.innerText)"> shooter </a></li>
-                <li><a id = "botao_categoria_3"  onclick="filterCategory(this.innerText)"> strategy </a></li>
-                <li><a id = "botao_categoria_4"  onclick="filterCategory(this.innerText)"> moba </a></li>
-                <li><a id = "botao_categoria_5"  onclick="filterCategory(this.innerText)"> racing </a></li>
-                <li><a id = "botao_categoria_6"  onclick="filterCategory(this.innerText)"> sports </a></li>
-                <li><a id = "botao_categoria_7"  onclick="filterCategory(this.innerText)"> open-world </a></li>
-                <li><a id = "botao_categoria_8"  onclick="filterCategory(this.innerText)"> survival </a></li>
+                <li><a onclick="filterHome()"><i class="fa-solid fa-house"></i>home</a></li>
+                <li>
+                    <img src="./assets/icons/mmorpg.ico" alt="">
+                    <a id = "botao_categoria_1"  onclick="filterCategory(this.innerText)">mmorpg</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/shooter.ico" alt="">
+                    <a id = "botao_categoria_2"  onclick="filterCategory(this.innerText)">shooter</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/strategy.ico" alt="">
+                    <a id = "botao_categoria_3"  onclick="filterCategory(this.innerText)">strategy</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/mobaico.ico" height="32px" width="32px" alt="">
+                    <a id = "botao_categoria_4"  onclick="filterCategory(this.innerText)">moba</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/racing.ico" alt="">
+                    <a id = "botao_categoria_5"  onclick="filterCategory(this.innerText)">racing</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/football.ico" alt="">
+                    <a id = "botao_categoria_6"  onclick="filterCategory(this.innerText)">sports</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/open-world.ico" alt="">
+                    <a id = "botao_categoria_7"  onclick="filterCategory(this.innerText)">open-world</a>
+                </li>
+                <li>
+                    <img src="./assets/icons/survival.ico" alt="">
+                    <a id = "botao_categoria_8"  onclick="filterCategory(this.innerText)">survival</a>
+                </li>
             </ul>
         </div>
     </aside>
@@ -52,7 +77,7 @@
             </div>
         </section>     
         <section class="grid">
-    
+            
         </section>
         <button id="btn">Carregar mais</button>
     </section>    

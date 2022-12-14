@@ -144,7 +144,9 @@ function filterCategory(category){
 //FAVORITES.
 function favoritesAction(index){
     let localStorageFavorites = localStorage.getItem('favorites');
-    let listafavoritos;
+    let listafavoritos;	
+
+	
 
     if(localStorageFavorites != undefined){
         listafavoritos = JSON.parse(localStorageFavorites);
@@ -161,6 +163,8 @@ function favoritesAction(index){
     }
 	favorites.push(jogos_exibidos[index]);
     localStorage.setItem('favorites', JSON.stringify(favorites));
+
+
 }
 
 //mostrar os favoritos
@@ -174,14 +178,26 @@ function mostrarFav(){
 	favorites = JSON.parse(localStorageFavorites);
 	
 
-	innerBanner.innerHTML = "";
+	
 	innerGameBanner.innerHTML = "";
 	innerGames.innerHTML="";
-	console.log(localStorage);
+	// console.log(localStorage);
 	
 	let btn = document.getElementById('btn');
 	btn.style.display = 'none' ;
 	
+
+	if ( favorites.length === 0) {
+		innerGames.innerHTML += `
+								<article class="fav-alert">
+									<p></p>
+								</article>
+								<article class="fav-alert">
+									<p>Você ainda não adicionou nenhum jogo aos favoritos</p>
+								</article>`;
+	}
+
+
 	for (let i = 0; i < favorites.length; i++) {
 		innerGames.innerHTML += `<article class="card-games">
 										<div class="fav-game">
